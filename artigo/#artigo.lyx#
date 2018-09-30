@@ -1,0 +1,300 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language brazilian
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 1
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize a4paper
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2cm
+\topmargin 3cm
+\rightmargin 3cm
+\bottommargin 2cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 2
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Trabalho I - Salvando as árvores
+\end_layout
+
+\begin_layout Author
+\paragraph_spacing single
+Bianca Camargo Machad
+\size large
+o
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+
+\size large
+bianca.camargo@acad.pucrs.br
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Escola Politécnica - PUCRS
+\end_layout
+
+\begin_layout Date
+3 de outubro de 2018
+\end_layout
+
+\begin_layout Abstract
+Este artigo descreve uma solução para o primeiro problema proposto na disciplina
+ Algoritmos e Estruturas de Dados II no semestre 2018/2, trata-se da determinaçã
+o da altura das ávores binárias que guardam segredos do Greenpeace.
+ Foram disponibilizados 10 casos de teste para resolução do problema: cada
+ um contém duas listagens de uma mesma árvore binária, sendo uma delas em
+ caminhamento pré-fixado e outra em caminhamento central.
+ Após descrever a solução do problema, são apresentados os resultados obtidos
+ para os casos de teste, juntamente com seus tempos de execução.
+\end_layout
+
+\begin_layout Section*
+Introdução
+\end_layout
+
+\begin_layout Standard
+No contexto da disciplina de Algoritmos e Estruturas de Dados II, o enunciado
+ do primeiro trabalho proposto pode ser resumido da seguinte forma: depois
+ de ter em mãos o documentos secretos do Greenpeace e analisada a forma
+ como estes documentos são codificados, constata-se que os documentos são
+ armazenados em forma de árvores binárias e que para cada árvore existem
+ duas formas de listagem: uma com caminhamento pré-fixado e outra com caminhamen
+to central.
+ Tendo as duas listagens referentes a uma mesma árvore dispostas em um arquivo,
+ assume-se o objetivo de determinar a altura da árvore descrita nas listagens.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Após observado o problema e seus casos de teste, as primeiras informações
+ que podemos listar sobre ele são as seguintes:
+\end_layout
+
+\begin_layout Itemize
+Todo arquivo contém informações sobre uma única árvore;
+\end_layout
+
+\begin_layout Itemize
+As listagens estão dispostas em duas linhas, sendo que a primeira é a com
+ caminhamento pré-fixado e a segunda com caminhamento central;
+\end_layout
+
+\begin_layout Itemize
+Não há tamanho máximo e mínimo para as listagens;
+\end_layout
+
+\begin_layout Itemize
+Não é necessário diferenciar letras maiúsculas e minúsculas;
+\end_layout
+
+\begin_layout Itemize
+O conteúdo do arquivo se restringe a conjunto de palavras formados por letras
+ e números;
+\end_layout
+
+\begin_layout Itemize
+Cada palavra não se repete na mesma listagem do caso de teste, ou seja,
+ é encontrada epenas uma vez na listagem pré-fixada e epenas outra vez na
+ listagem infixada;
+\end_layout
+
+\begin_layout Itemize
+Os valores 
+\family typewriter
+null
+\family default
+ não fazem parte das listagens;
+\end_layout
+
+\begin_layout Standard
+A fim de ilustrar o problema de maneira prática, utilizaremos uma versão
+ simplificada do padrão de listagem encontrada nos documentos secretos do
+ Greenpeace: consideraremos que as informações contidas na árvore são letras
+ do alfabeto de A a K e segue-se todos os padrões observados e listados
+ acima.
+ Assim como os valores 
+\family typewriter
+null 
+\family default
+não aparecem nas listagem, também não serão mostrados nas imagens referentes
+ às árvores, já que não influenciam na altura da ávores.
+\end_layout
+
+\begin_layout Standard
+Abaixo encontram-se exemplos de listagem e a ilustração da árvore que correspond
+e a elas:
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A B D H I E C F G J K
+\end_layout
+
+\begin_layout Standard
+H D I B E A F C J G K
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagem1.PNG
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Árvore correspondente às listagens exibidas acima.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Segundo [1] , o caminhamento de uma árvore T é uma forma sistemática de
+ acessar ou 
+\begin_inset Quotes eld
+\end_inset
+
+visitar
+\begin_inset Quotes erd
+\end_inset
+
+ todos os nodos de T.
+ Juntamente com este conceito cabe destacar que caminhamento pré-fixado
+ de uma árvore ocorre da seguinte forma: visita a raiz, percorre sub-árvore
+ esquerda e percorre sub-árvore direita, nesta ordem.
+ Já o caminhamento infixado ou central ocorre da seguinte forma: percorre
+ sub-árvore esquerda, visita a raiz e percorre sub-árvore direita, nesta
+ ordem.
+\end_layout
+
+\begin_layout Standard
+O objetivo principal é calcular a altura da árvore presente nas listagens,
+ sabemos que a o algoritmo que realiza este cálculo é relativamente simples
+ e geralmente abordado em sala de aula durante o estudo da estrutura de
+ árvores.
+ Já que a altura da árvore é a distância da sua raiz até seu nodo mais afastado,
+ pode-se dizer também que é o número de arestas que é necessário percorrer
+ para chegar ao nodo mais afastado da raiz.
+ 
+\end_layout
+
+\begin_layout Standard
+No exemplo de árvore mostrado acima a altura é 3, já que nodos mais afastados
+ de A são H, I, J e K, e para chegar a qualquer um deles é necessário percorrer
+ três arestas.
+ Se para chegar a qualquer um deles fosse necessário percorrer um número
+ maior de arestas, essa seria a altura da árvore.
+\end_layout
+
+\begin_layout Standard
+Sabendo de todas estas informações podemos observar que o empecilho para
+ descrobrirmos a altura da árvore de cada listagem é a falta conhecimento
+ sobre a estrutura completa da mesma, pois temos diretamente o número de
+ arestas, por exemplo, somente com as listagens diponíveis para a solucionar
+ o problema
+\end_layout
+
+\end_body
+\end_document
