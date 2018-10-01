@@ -275,12 +275,12 @@ visitar
 
 \begin_layout Standard
 O objetivo principal do trabalho é calcular a altura da árvore presente
- nas listagens, sabemos que a o algoritmo que realiza este cálculo é relativamen
-te simples e geralmente abordado em sala de aula durante o estudo da estrutura
+ nas listagens, sabemos que o algoritmo que realiza este cálculo é relativamente
+ simples e geralmente abordado em sala de aula durante o estudo da estrutura
  de árvores.
- E que a altura da árvore é a distância da sua raiz até seu nodo mais afastado,
- pode-se dizer também que é o número de arestas que é necessário percorrer
- para chegar ao nodo mais afastado da raiz.
+ Sabemos também que a altura da árvore é a distância da sua raiz até seu
+ nodo mais afastado, pode-se dizer também que é o número de arestas que
+ necessita-se percorrer para chegar ao nodo mais afastado da raiz.
  
 \begin_inset Newline newline
 \end_inset
@@ -302,7 +302,7 @@ No exemplo de árvore mostrado acima a altura é 3, já que nodos mais afastados
 \end_layout
 
 \begin_layout Standard
-Sabendo de todas estas informações podemos observar que o empecilho para
+Sabendo de todas estas informações podemos observar que um empecilho para
  determinarmos a altura da árvore de cada listagem é a falta conhecimento
  sobre a estrutura completa da mesma, pois não temos diretamente, por exemplo,
  o número de arestas e os nodos aos quais elas se ligam.
@@ -319,7 +319,21 @@ H D I B E A F C J G K
 \begin_inset Newline newline
 \end_inset
 
-[1] Goodrich, Michael T.: 
+A seguir será explicado como o algoritmo que resolve este problema foi construíd
+o, lógoca abordada por fim e a desmonstração de seus resultados para os
+ casos de testes diponibilizados junto ao problema.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "1"
+key "key-2"
+literal "false"
+
+\end_inset
+
+Goodrich, Michael T.: 
 \begin_inset Quotes eld
 \end_inset
 
@@ -328,7 +342,8 @@ Estuturas de Dados e algoritmos em Java
 \end_inset
 
 .
- Bookman, 2013.
+ 5 ed.
+ Bookman, 2013, 713 p.
 \end_layout
 
 \end_body

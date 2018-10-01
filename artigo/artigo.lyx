@@ -275,12 +275,12 @@ visitar
 
 \begin_layout Standard
 O objetivo principal do trabalho é calcular a altura da árvore presente
- nas listagens, sabemos que a o algoritmo que realiza este cálculo é relativamen
-te simples e geralmente abordado em sala de aula durante o estudo da estrutura
+ nas listagens, sabemos que o algoritmo que realiza este cálculo é relativamente
+ simples e geralmente abordado em sala de aula durante o estudo da estrutura
  de árvores.
- E que a altura da árvore é a distância da sua raiz até seu nodo mais afastado,
- pode-se dizer também que é o número de arestas que é necessário percorrer
- para chegar ao nodo mais afastado da raiz.
+ Sabemos também que a altura da árvore é a distância da sua raiz até seu
+ nodo mais afastado, pode-se dizer também que é o número de arestas que
+ necessita-se percorrer para chegar ao nodo mais afastado da raiz.
  
 \begin_inset Newline newline
 \end_inset
@@ -289,12 +289,12 @@ te simples e geralmente abordado em sala de aula durante o estudo da estrutura
 \end_layout
 
 \begin_layout Standard
-No exemplo de árvore mostrado acima a altura é 3, já que nodos mais afastados
- de A são H, I, J e K, e para chegar em qualquer um deles é necessário percorrer
- três arestas.
+No exemplo de árvore mostrado acima a altura é 3, já que os nodos mais afastados
+ de A (raiz) são H, I, J e K, e para chegar em qualquer um deles, a partir
+ de A, é necessário percorrer três arestas.
  Se para chegar a qualquer um deles fosse necessário percorrer um número
- de arestas maior do que, essa seria a altura da árvore, já que considera-se
- a maior distância.
+ de arestas maior do que este, o mesmo seria a altura da árvore, já que
+ considera-se a maior distância necessária.
 \begin_inset Newline newline
 \end_inset
 
@@ -302,7 +302,7 @@ No exemplo de árvore mostrado acima a altura é 3, já que nodos mais afastados
 \end_layout
 
 \begin_layout Standard
-Sabendo de todas estas informações podemos observar que o empecilho para
+Sabendo de todas estas informações podemos observar que um empecilho para
  determinarmos a altura da árvore de cada listagem é a falta conhecimento
  sobre a estrutura completa da mesma, pois não temos diretamente, por exemplo,
  o número de arestas e os nodos aos quais elas se ligam.
@@ -320,6 +320,12 @@ H D I B E A F C J G K
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+A seguir será explicado como foi construído o algoritmo que soluciona o
+ problema, a lógica abordada na resolução e, por fim, a desmonstração dos
+ resultados obtidos para os casos de testes diponibilizados junto ao problema.
 \end_layout
 
 \begin_layout Bibliography
