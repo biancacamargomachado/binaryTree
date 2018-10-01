@@ -267,33 +267,68 @@ visitar
  Já o caminhamento infixado ou central ocorre da seguinte forma: percorre
  sub-árvore esquerda, visita a raiz e percorre sub-árvore direita, nesta
  ordem.
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-O objetivo principal é calcular a altura da árvore presente nas listagens,
- sabemos que a o algoritmo que realiza este cálculo é relativamente simples
- e geralmente abordado em sala de aula durante o estudo da estrutura de
- árvores.
- Já que a altura da árvore é a distância da sua raiz até seu nodo mais afastado,
+O objetivo principal do trabalho é calcular a altura da árvore presente
+ nas listagens, sabemos que a o algoritmo que realiza este cálculo é relativamen
+te simples e geralmente abordado em sala de aula durante o estudo da estrutura
+ de árvores.
+ E que a altura da árvore é a distância da sua raiz até seu nodo mais afastado,
  pode-se dizer também que é o número de arestas que é necessário percorrer
  para chegar ao nodo mais afastado da raiz.
  
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 No exemplo de árvore mostrado acima a altura é 3, já que nodos mais afastados
- de A são H, I, J e K, e para chegar a qualquer um deles é necessário percorrer
+ de A são H, I, J e K, e para chegar em qualquer um deles é necessário percorrer
  três arestas.
  Se para chegar a qualquer um deles fosse necessário percorrer um número
- maior de arestas, essa seria a altura da árvore.
+ de arestas maior do que, essa seria a altura da árvore, já que considera-se
+ a maior distância.
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 Sabendo de todas estas informações podemos observar que o empecilho para
- descrobrirmos a altura da árvore de cada listagem é a falta conhecimento
- sobre a estrutura completa da mesma, pois temos diretamente o número de
- arestas, por exemplo, somente com as listagens diponíveis para a solucionar
- o problema
+ determinarmos a altura da árvore de cada listagem é a falta conhecimento
+ sobre a estrutura completa da mesma, pois não temos diretamente, por exemplo,
+ o número de arestas e os nodos aos quais elas se ligam.
+ Portanto, considerando o exemplo dado, o objetivo resume-se a determinar
+ a altura da árvore apenas com listagens como 
+\series bold
+A B D H I E C F G J K
+\series default
+ e 
+\series bold
+H D I B E A F C J G K
+\series default
+ e as informações que as cercam.
+\begin_inset Newline newline
+\end_inset
+
+[1] Goodrich, Michael T.: 
+\begin_inset Quotes eld
+\end_inset
+
+Estuturas de Dados e algoritmos em Java
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Bookman, 2013.
 \end_layout
 
 \end_body
