@@ -5,7 +5,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
         long time1 = System.currentTimeMillis();
         Calculate x = new Calculate();
-        String caso = "caso05";
+        String caso = "dados";
         x.carregaArq(caso);
         boolean join = x.joinTree();
         if(join)

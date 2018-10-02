@@ -60,7 +60,7 @@ public class Calculate {
 
     public static int treeHeight(BinaryTree r) {//calculo a altura
         if (r == null)
-            return 0;//r nulo = altura vazia
+            return -1;//r nulo = altura vazia
         else {
             int hLeft = treeHeight(r.left);
             int hRight = treeHeight(r.right);
