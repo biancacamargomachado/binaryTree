@@ -177,7 +177,7 @@ Os valores
 \family typewriter
 null
 \family default
- não fazem parte das listagens;
+ não fazem parte das listagens.
 \end_layout
 
 \begin_layout Standard
@@ -328,13 +328,13 @@ ntos.
 \end_layout
 
 \begin_layout Standard
-Seguindo este mesmo raciocínio, podemos observar que a raiz da árvore, na
- listagem infixada, estará no centro da mesma (exceto quando a quantidade
- de elementos da esquerda e direita forem diferentes) e ainda: tendo o nodo
- raiz da árvore a partir da primeira listagem podemos localizá-lo na segunda
- e determinar quais os nodos pertecem à esquerda da árvore e quais os nodos
- pertemcem à direita, utilizando-se do fato de que o caminhamento infixado
- segue a ordem sub-árvore esquerda, raiz e sub-árvore direita.
+Seguindo este raciocínio, podemos observar que a raiz da árvore, na listagem
+ infixada, estará no centro da mesma (exceto quando a quantidade de elementos
+ da esquerda e direita forem diferentes) e ainda: tendo o nodo raiz da árvore
+ a partir da primeira listagem podemos localizá-lo na segunda e determinar
+ quais os nodos pertecem à esquerda da árvore e quais os nodos pertencem
+ à direita, utilizando-se do fato de que o caminhamento infixado segue a
+ ordem sub-árvore esquerda, raiz e sub-árvore direita.
 \end_layout
 
 \begin_layout Standard
@@ -488,20 +488,44 @@ marca
 Quando se está determinado as sub-árvores da esquerda: a posição incial
  deve ser 0 (na primeira repetição) e a final deve ser a 
 \series bold
-(marca
+marca
 \series default
- -1), já que o nodo pai não deve ser divido novamente, mas sim servir de
+ -1, já que o nodo pai não deve ser divido novamente, mas sim servir de
  marca a a divisão da sub-árvore;
 \end_layout
 
 \begin_layout Itemize
 Quando se está determinando as sub-árvores da direita: a posição inicial
- deve ser (
+ deve ser 
 \series bold
 marca
 \series default
- +1), já que o nodo pai também não deve ser considerado na nova divisão,
- e a final de ser o último valor em que foi encontrado 
+ +1, já que o nodo pai também não deve ser considerado na nova divisão,
+ e a final de ser incrementado desde a posição da marca até no máximo o
+ tamanho da lista;
+\end_layout
+
+\begin_layout Itemize
+O valor da 
+\series bold
+marca
+\series default
+ é atualizado a cada repetição, já que o índice que percorre a listagem
+ pré-fixada é incrementado de 1 a 1 até chegar ao final da listagem;
+\end_layout
+
+\begin_layout Itemize
+Quando o índice inicial for maior que o tamanho do índice final (passados
+ por parâmetro) significa que chegamos a um nodo 
+\family typewriter
+null,
+\family default
+cheste que não exerce influência sobre a altura da árvore;
+\end_layout
+
+\begin_layout Itemize
+Quando o índice inicial for igual a índice final significa que chegamos
+ ao final daquela ramificação (um dos exemplo é o nodo I - Figura 1).
 \end_layout
 
 \begin_layout Section*
@@ -509,6 +533,7 @@ Resultados
 \end_layout
 
 \begin_layout Standard
+\align center
 \begin_inset Tabular
 <lyxtabular version="3" rows="11" columns="3">
 <features tabularvalignment="middle">
@@ -839,6 +864,11 @@ caso50
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+\align center
+Tabela1: Resultados dos casos de testes aplicados ao algoritmo desenvolvido
 \end_layout
 
 \begin_layout Section*
