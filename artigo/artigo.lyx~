@@ -168,7 +168,7 @@ O conteúdo do arquivo se restringe a conjunto de palavras formados por letras
 
 \begin_layout Itemize
 Cada palavra não se repete na mesma listagem do caso de teste, ou seja,
- é encontrada epenas uma vez na listagem pré-fixada e epenas outra vez na
+ é encontrada epenas uma vez na listagem pré-fixada e epenas uma vez na
  listagem infixada;
 \end_layout
 
@@ -190,8 +190,8 @@ A fim de ilustrar o problema de maneira prática, utilizaremos uma versão
 \family typewriter
 null 
 \family default
-não aparecem nas listagem, também não serão mostrados nas imagens referentes
- às árvores, já que não influenciam na altura da ávores.
+não aparecem na listagem, também não serão mostrados na imagem referente
+ à estrutura da árvore, já que não influenciam na altura da mesma.
 \end_layout
 
 \begin_layout Standard
@@ -255,7 +255,7 @@ visitar
 \end_inset
 
  todos os nodos de T.
- Juntamente com este conceito cabe destacar que caminhamento pré-fixado
+ Juntamente com este conceito, cabe destacar que caminhamento pré-fixado
  de uma árvore ocorre da seguinte forma: visita a raiz, percorre sub-árvore
  esquerda e percorre sub-árvore direita, nesta ordem.
  Já o caminhamento infixado ou central ocorre da seguinte forma: percorre
@@ -330,13 +330,8 @@ Seguindo este raciocínio, podemos observar que a raiz da árvore, na listagem
  infixada, estará no centro da mesma (exceto quando a quantidade de elementos
  da esquerda e direita forem diferentes) e ainda: tendo o nodo raiz da árvore
  a partir da primeira listagem, podemos localizá-lo na segunda e determinar
- quais nodos pertecem à esquerda da árvore e quais nodos pertencem à direita,
- utilizando-se do fato de que o caminhamento infixado segue a ordem sub-árvore
- esquerda, raiz e sub-árvore direita.
-\end_layout
-
-\begin_layout Standard
-Para ilustrar esta ideia observe a imagem a seguir:
+ quais nodos pertecem à esquerda da árvore e quais nodos pertencem à direita.
+ A fim de ilustrar esta ideia segue a imagem:
 \end_layout
 
 \begin_layout Standard
@@ -377,10 +372,9 @@ Demonstração da relação entre o primeiro elemento da listagem pré-fixada
 
 \begin_layout Standard
 Podemos notar que este raciocínio pode nos levar à estrutura completa da
- árvore já que, recursivamente, repetindo estes mesmos passos, podemos chegar
- a estrutura completa da árvore, para que ao final possamos calcular a altura
- da mesma.
- Acompanhe o fluxo de repetições a seguir, que ilustra esta ideia:
+ árvore já que, recursivamente, podemos chegar a estrutura completa da mesma,
+ para que ao final possamos calcular a altura da estrtutura.
+ Acompanhe o fluxo de repetições a seguir, que ilustra este raciocínio:
 \begin_inset Newline newline
 \end_inset
 
@@ -424,11 +418,11 @@ Fluxo de recursão resumido para acompanhar a lógica de definição da estrutur
 
 \begin_layout Standard
 A imagem acima demonstra um fluxo resumido de como se dá o processo de estrutura
-ção da árvore do lado esquerdo a partir da primeira divisão, seguindo os
- seguintes passos: determinação da raiz, localização da mesma na listagem
+ção da sub-árvore esquerda a partir da primeira divisão (Figura 2), a ilustração
+ segue estes passos: determinação da raiz, localização da mesma na listagem
  infixada e a separação da sub-árvore em sub-árvore esquerda e direita.
  O processo é repetido até que a mesma esteja com sua estrutura completa
- (até chegarmos à estrutura de árvore exibida na Figura 1 - Página 1).
+ (até chegarmos à estrutura de árvore ilustrada na Figura 1 - Página 1).
  Vale destacar que, para simplificar a demonstração, o mesmo processo ocorre
  nas sub-árvores resultantes de 
 \series bold
@@ -465,10 +459,9 @@ O algoritmo para o problema em questão foi implementado na linguagem Java
 \end_layout
 
 \begin_layout Standard
-O método que monta a estrutura da árvore retorna a raiz da árvore, para
- que seja utilizada no método que calcula sua altura.
- Este algoritmo percorre as posições na listagem pré-fixada e busca cada
- elemento na listagem infixada.
+O método que monta a estrutura da árvore retorna seu nodo raiz, para que
+ seja utilizado no método que calcula a altura, este algoritmo percorre
+ as posições na listagem pré-fixada e busca cada elemento na listagem infixada.
  Tendo a posição do elemento, a qual chamaremos de 
 \series bold
 marca
@@ -478,17 +471,17 @@ marca
  A partir desta posição podemos dividir a árvore em esquerda e direita,
  como descrito na análise do problema.
  Para controlar quando a determinação da estrutura de sub-árvores da esquerda
- e da direita foram finalizadas, o método recebe como parâmetro duas informações
+ e da direita forem finalizadas, o método recebe como parâmetro duas informações
  de onde ele deve inciar a comparação e onde deve parar.
- Isto para que seja possível garantir que a procura de nodos do lado esquerdo
- está sendo feita somente nele e o mesmo para o lado direito.
- E sem ultrapassar o limite da sub-árvore.
- A seguir estão alguns pontos importantes do algoritmo:
+ Isto, para que seja possível garantir que a procura de nodos do lado esquerdo
+ está sendo feita somente nele e o mesmo para o lado direito, sem ultrapassar
+ o limite da sub-árvore.
+ A seguir estão alguns pontos importantes sobre o algoritmo:
 \end_layout
 
 \begin_layout Itemize
-Quando se está determinado as sub-árvores da esquerda: a posição incial
- deve ser 0 (na primeira repetição) e a final deve ser a 
+Para determinar as sub-árvores da esquerda: a posição incial deve ser 0
+ (na primeira repetição) e a final deve ser a 
 \series bold
 marca
 \series default
@@ -497,8 +490,7 @@ marca
 \end_layout
 
 \begin_layout Itemize
-Quando se está determinando as sub-árvores da direita: a posição inicial
- deve ser 
+Para determinar as sub-árvores da direita: a posição inicial deve ser 
 \series bold
 marca
 \series default
@@ -518,11 +510,11 @@ marca
 
 \begin_layout Itemize
 Quando o índice inicial for maior que o tamanho do índice final (passados
- por parâmetro) significa que chegamos a um nodo 
+ por parâmetro) significa que chegamos a um nodo folha 
 \family typewriter
 null,
 \family default
-cheste que não exerce influência sobre a altura da árvore;
+este que não exerce influência na altura da árvore;
 \end_layout
 
 \begin_layout Itemize
@@ -531,12 +523,13 @@ Quando o índice inicial for igual a índice final significa que chegamos
 \end_layout
 
 \begin_layout Standard
-O método apresentado a seguir tem como objetivo definifir a estrutura da
- árvore a partir das de listagens fornecidas, utilizando-se de todos os
- conceitos explicados acima.
- Considera-se também a classe Arvore, com a seguinte estrutura: três atributos,
- esquerda, direita e elemento, sendo dois deles do tipo Arvore e o último
- do tipo String, além do construtor da classe.
+O método apresentado a seguir tem como objetivo definir a estrutura da árvore
+ a partir das de listagens fornecidas, utilizando-se de todos os conceitos
+ explicados acima.
+ Utilizamos a classe Arvore para estabelecer a relação entre os nodos, com
+ a seguinte estrutura: três atributos, esquerda, direita e elemento, sendo
+ dois deles do tipo Arvore e o último do tipo String, além do construtor
+ da classe.
 \end_layout
 
 \begin_layout LyX-Code
@@ -605,12 +598,20 @@ int marca = listagemInfixada.indexOf(subarvore.elemento);
 \end_layout
 
 \begin_layout LyX-Code
+
+\end_layout
+
+\begin_layout LyX-Code
 //Buscamos o nodo da esquerda, passando os novos índices para localizá-lo
  
 \end_layout
 
 \begin_layout LyX-Code
 subarvore.esquerda = estruturaArvore(de, marca-1); 
+\end_layout
+
+\begin_layout LyX-Code
+
 \end_layout
 
 \begin_layout LyX-Code
@@ -644,11 +645,11 @@ retorna subarvore;
 
 \begin_layout Standard
 A partir do retorno do nodo raiz pelo método listado acima, o método responsável
- por calcular a altura da árvore é o srguinte:
+ por calcular a altura da árvore é o seguinte:
 \end_layout
 
 \begin_layout LyX-Code
-//calculo a altura 
+//cálculo da altura 
 \end_layout
 
 \begin_layout LyX-Code
@@ -713,14 +714,14 @@ senão retorna ++alturaDireita;
 
 \begin_layout Standard
 Os métodos apresentados acima foram fundamentais na resolução do problema
- abordado neste artigo, E uma das formas de testar se o resultado era o
- esperado foi utilizando a árvore citada como exemplo durante a descrição
- do problema (Introdução e Análise do problema), a partir da qual obtivemos
- o resultado de altura 3.
+ abordado neste artigo.E uma das formas de testar se o resultado era o esperado
+ foi utilizar a árvore citada como exemplo durante a descrição do problema
+ como teste de entrada (Introdução e Análise do problema), a partir da qual
+ obtivemos o resultado de altura 3, como esperado.
  Além deste exemplo, também validou-se a seguinte situação: sendo cada uma
  as listagens, infixada e pré-fixada, compostas por um único elemento, o
  resultado esperado como altura da árvore seria 0.
- E o mesmo foi obtido.
+ E este resultado foi obtido após o teste.
 \end_layout
 
 \begin_layout Section*
@@ -729,9 +730,15 @@ Resultados
 
 \begin_layout Standard
 Os resultados obtidos com os casos de testes, disponibilizados junto ao
- problema, exigiram um tempo de execução do algoritmo que variou de 44 milisegun
-dos a 36.834 milisegundos e esta diferença de tempo deve-se a complexidade
- da estruturadas linstagens contidas em cada caso.
+ problema, exigiram um tempo de execução do algoritmo que variou entre 44
+ e 36.834 milisegundos e esta diferença de tempo deve-se à complexidade das
+ estruturadas das linstagens contidas em cada caso.
+\end_layout
+
+\begin_layout Standard
+Na tabela a seguir são apresentados os resultados obtidos para cada caso
+ de teste, contendo o tempo de execução desde a leitura do arquivo até o
+ retorno do resultado e a altura retornada.
 \end_layout
 
 \begin_layout Standard
@@ -1070,7 +1077,7 @@ caso50
 
 \begin_layout Standard
 \align center
-Tabela1: Resultados dos casos de testes aplicados ao algoritmo desenvolvido
+Tabela1: Resultados dos casos de testes aplicados ao algoritmo desenvolvido.
 \end_layout
 
 \begin_layout Section*
