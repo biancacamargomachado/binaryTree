@@ -204,10 +204,12 @@ e a elas:
 \end_layout
 
 \begin_layout Standard
+\align center
 A B D H I E C F G J K
 \end_layout
 
 \begin_layout Standard
+\align center
 H D I B E A F C J G K
 \begin_inset Float figure
 wide false
@@ -234,10 +236,6 @@ status open
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Plain Layout
 
 \end_layout
 
@@ -529,11 +527,211 @@ cheste que não exerce influência sobre a altura da árvore;
 
 \begin_layout Itemize
 Quando o índice inicial for igual a índice final significa que chegamos
- ao final daquela ramificação (um dos exemplo é o nodo I - Figura 1).
+ a um nodo folha (um dos exemplo é o nodo I - Figura 1).
+\end_layout
+
+\begin_layout Standard
+O método apresentado a seguir tem como objetivo definifir a estrutura da
+ árvore a partir das de listagens fornecidas, utilizando-se de todos os
+ conceitos explicados acima.
+ Considera-se também a classe Arvore, com a seguinte estrutura: três atributos,
+ esquerda, direita e elemento, sendo dois deles do tipo Arvore e o último
+ do tipo String, além do construtor da classe.
+\end_layout
+
+\begin_layout LyX-Code
+//Na primeira execução de = 0 e para = (tamanho da listagem)-1 
+\end_layout
+
+\begin_layout LyX-Code
+estruturaArvore(int de, int para) {
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+//Critério para definição de nodo folha nulo 
+\end_layout
+
+\begin_layout LyX-Code
+se (de > para)
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+retorna null; 
+\end_layout
+
+\end_deeper
+\begin_layout LyX-Code
+
+\end_layout
+
+\begin_layout LyX-Code
+String nodoPreFixada = listagemPre.get(indice++); 
+\end_layout
+
+\begin_layout LyX-Code
+Arvore subarvore = nova Arvore(nodoPreFixada); 
+\end_layout
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\begin_layout LyX-Code
+//Chegamos a uma extremidade (nodo folha)
+\end_layout
+
+\begin_layout LyX-Code
+se (de == para) 
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+retorna subarvore;
+\end_layout
+
+\end_deeper
+\begin_layout LyX-Code
+
+\end_layout
+
+\begin_layout LyX-Code
+//Marcamos a posição do elemento de indíce atual na listagem infixada 
+\end_layout
+
+\begin_layout LyX-Code
+int marca = listagemInfixada.indexOf(subarvore.elemento); 
+\end_layout
+
+\begin_layout LyX-Code
+//Buscamos o nodo da esquerda, passando os novos índices para localizá-lo
+ 
+\end_layout
+
+\begin_layout LyX-Code
+subarvore.esquerda = estruturaArvore(de, marca-1); 
+\end_layout
+
+\begin_layout LyX-Code
+//buscamos o nodo da direita, passando os novos índices para localizá-lo
+\end_layout
+
+\begin_layout LyX-Code
+subarvore.direita = estruturaArvore(marca+1, para); 
+\end_layout
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\begin_layout LyX-Code
+//Após gerada a estrutura da árvore: o nodo raiz é retornado
+\end_layout
+
+\begin_layout LyX-Code
+//A partir do qual é realizado o cálculo da altura
+\end_layout
+
+\begin_layout LyX-Code
+retorna subarvore; 
+\end_layout
+
+\end_deeper
+\begin_layout LyX-Code
+}
+\end_layout
+
+\begin_layout Standard
+A partir do retorno do nodo raiz pelo método listado acima, o método responsável
+ por calcular a altura da árvore é o srguinte:
+\end_layout
+
+\begin_layout LyX-Code
+//calculo a altura 
+\end_layout
+
+\begin_layout LyX-Code
+altura(Arvore elemento) {        
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+se (elemento == null)            
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+retorna -1;        
+\end_layout
+
+\end_deeper
+\begin_layout LyX-Code
+senão {             
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+int alturaEsquerda = altura(elemento.esquerda);
+\end_layout
+
+\begin_layout LyX-Code
+int alturaDireita = altura(elemento.direita);
+\end_layout
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\begin_layout LyX-Code
+//retorno a maior altura, esquer ou direita 
+\end_layout
+
+\begin_layout LyX-Code
+se (alturaEsquerda < alturaDireita) 
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+retorna ++alturaEsquerda;            
+\end_layout
+
+\end_deeper
+\begin_layout LyX-Code
+senão retorna ++alturaDireita;         
+\end_layout
+
+\end_deeper
+\begin_layout LyX-Code
+}     
+\end_layout
+
+\end_deeper
+\begin_layout LyX-Code
+}
+\end_layout
+
+\begin_layout Standard
+Os métodos apresentados acima foram fundamentais na resolução do problema
+ abordado neste artigo, E uma das formas de testar se o resultado era o
+ esperado foi utilizando a árvore citada como exemplo durante a descrição
+ do problema (Introdução e Análise do problema), a partir da qual obtivemos
+ o resultado de altura 3.
+ Além deste exemplo, também validou-se a seguinte situação: sendo cada uma
+ as listagens, infixada e pré-fixada, compostas por um único elemento, o
+ resultado esperado como altura da árvore seria 0.
+ E o mesmo foi obtido.
 \end_layout
 
 \begin_layout Section*
 Resultados
+\end_layout
+
+\begin_layout Standard
+Os resultados obtidos com os casos de testes, disponibilizados junto ao
+ problema, exigiram um tempo de execução do algoritmo que variou de 44 milisegun
+dos a 36.834 milisegundos e esta diferença de tempo deve-se a complexidade
+ da estruturadas linstagens contidas em cada caso.
 \end_layout
 
 \begin_layout Standard
@@ -567,7 +765,7 @@ Resultado Obtido (altura da árvore)
 \begin_inset Text
 
 \begin_layout Plain Layout
-Tempo de execução do algoritmo (ms)
+Tempo de execução do algoritmo (milissegundos)
 \end_layout
 
 \end_inset
@@ -880,7 +1078,16 @@ Conclusões
 \end_layout
 
 \begin_layout Standard
-BLÁ BLÁ BLÁ, FALTA FAZER, Ô VIDA TRISTE, SÓ JESUS NA CAUSA
+A solução desenvolvida e apresentada ao longo deste artigo obteve resultados
+ satisfatórios em relação aos resultados esperados e o tempo necessário
+ para que o algoritmo resolvesse os problemas disponíveis nos casos de teste.
+ Tendo em vista que algumas decisões a nível lógico e estrutural do código
+ podem afetar de forma significativa os resultados e efeciência do algoritmo,
+ foi de extrema importância o entendimento do problema como um todo e detalhamen
+to das informações que inerentes à sistemática dos caminhamentos pré e infixidad
+o de árvores binárias.
+ Possibilitando chegar-se a resultados satisfatórios e o obajetivo principal
+ concluído.
 \end_layout
 
 \begin_layout Bibliography

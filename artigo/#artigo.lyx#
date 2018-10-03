@@ -1080,12 +1080,13 @@ Conclusões
 \begin_layout Standard
 A solução desenvolvida e apresentada ao longo deste artigo obteve resultados
  satisfatórios em relação aos resultados esperados e o tempo necessário
- para que o algoritmo resolvesse os problemas disponíveis nos casos de teste.
- Tendo em vista que algumas decisões a nível lógico e estrutural do código
- podem afetar de forma significativa os resultados e efeciência do algoritmo,
+ para que o algoritmo resolvesse os problemas disponíveis nos casos dede
+ teste.
+ Tendo em vista que algumas decisões a nível de lógica e estrtura do código
+ podem afetar de forma significante o resuktado e efeciência do algoritmo,
  foi de extrema importância o entendimento do problema como um todo e detalhamen
-to das informações que inerentes na sistemática dos caminhamentos pré e
- infixidados de árvores binárias.
+to das informações que ficam subentendidas na sistemática dos caminhamentos
+ pré e infixidados de árvores binárias.
  
 \end_layout
 

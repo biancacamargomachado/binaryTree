@@ -54,7 +54,7 @@ public class Calculate {
         int mark = arvInfix.indexOf(sub.element);//marco na infixada o elemento atual do índice a marca é um nodo pai
         sub.left = tree(from, mark-1);//vou colocar na árvore a esquerda deste nodo, só pode ir até a marca -1 (esquerda)
         sub.right = tree(mark+1, to);//vou colocar na árvore a direita do nodo, tem que começar da marca mais um
-
+        System.out.println(sub.element);
         return sub;//retorna o nodo atual
     }
 
